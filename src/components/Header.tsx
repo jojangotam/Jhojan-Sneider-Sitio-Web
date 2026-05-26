@@ -33,7 +33,7 @@ export function Header() {
             }}
             transition={{ duration: 0.2 }}
           >
-            <span className="audiowide" style={{ display: "block" }}>JHOJAN SNEIDER</span>
+            <span className="audiowide" style={{ display: "block" }}>Algo's JSX</span>
           </motion.div>
 
           {/* Mobile hamburger - visible only on small screens */}

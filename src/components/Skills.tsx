@@ -1,9 +1,6 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 
 export function Skills() {
-  const [hoveredSkill, setHoveredSkill] = useState<number | null>(null);
-
   const skills = [
     { name: "After Effects", level: 95, description: "Animación, Efectos visuales, composición compleja", specialties: ["Animación vectorial", "Rotoscopia"] },
     { name: "Blender", level: 88, description: "Modelado 3D, animación, rendering", specialties: ["Cycles/Eevee", "Shading", "Rigging", "Uv editing", "Fisicas"] },
@@ -70,8 +67,6 @@ export function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.4, delay: index * 0.03 }}
-              onMouseEnter={() => setHoveredSkill(index)}
-              onMouseLeave={() => setHoveredSkill(null)}
               whileHover={{ scale: 1.02 }}
             >
               {/* Vista móvil: solo icono + nivel */}
@@ -96,7 +91,6 @@ export function Skills() {
                     <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Photoshop" className="w-8 h-8" />
                   )}
                 </span>
-                <span className="text-xs text-primary">{skill.level}%</span>
               </div>
 
               {/* Vista escritorio: tarjeta completa */}
@@ -105,9 +99,6 @@ export function Skills() {
                   <h3 className="text-xl text-foreground group-hover:text-primary transition-colors duration-300">
                     {skill.name}
                   </h3>
-                  <span className="text-lg" style={{ color: '#ff9933' }}>
-                    {skill.level}%
-                  </span>
                 </div>
 
                   <div className="relative mb-4">

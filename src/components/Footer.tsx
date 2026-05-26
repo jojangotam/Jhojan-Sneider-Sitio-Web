@@ -35,7 +35,7 @@ export function Footer() {
           {/* Marca */}
           <div className="lg:col-span-2 space-y-4">
             <p className="text-base font-medium text-neutral-200">
-              Sneider Productions
+              Algo's JSX
             </p>
             <p>
               Practicante y estudiante en motion graphics y efectos visuales con más de 3
@@ -107,7 +107,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center text-xs text-neutral-500 gap-4">
           <div className="text-center md:text-left">
             <p>
-              © {currentYear} Sneider Productions. Motion Graphics & Visual
+              © {currentYear} Algo's JSX. Motion Graphics & Visual
               Effects.
             </p>
             <p className="mt-1">

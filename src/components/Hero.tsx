@@ -61,7 +61,7 @@ export function Hero() {
           >
             <motion.img
               src="/logooptimizado.png"
-              alt="Sneider Productions Logo"
+              alt="Algo's JSX Logo"
               className="w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain"
               style={{
                 filter: "drop-shadow(0 0 10px rgba(0, 255, 255, 0.4))",
