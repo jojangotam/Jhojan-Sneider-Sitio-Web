@@ -64,16 +64,15 @@ export function Skills() {
         </motion.p>
 
         {/* Fila principal — 2 tarjetas grandes */}
-        <div className="grid gap-6 mb-6" style={{ gridTemplateColumns: 'repeat(2, 1fr)' }}>
+        <div className="grid gap-6 mb-6 grid-cols-1 sm:grid-cols-2">
           {featuredSkills.map((skill, index) => (
             <motion.div
               key={skill.name}
-              className="backdrop-blur-sm rounded-xl border transition-all duration-300 relative overflow-hidden group
-                         h-32 sm:h-auto p-4 sm:p-8 flex items-center justify-center sm:block"
+              className="backdrop-blur-sm rounded-xl border transition-all duration-300 relative overflow-hidden group p-6 sm:p-8"
               style={{ background: CARD_BG, borderColor: CARD_BORDER, willChange: 'transform' }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, amount: 0 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
               whileHover={{ scale: 1.02 }}
             >
@@ -84,30 +83,28 @@ export function Skills() {
                 />
               )}
 
-              {/* Móvil */}
-              <div className="flex flex-col items-center justify-center sm:hidden text-center relative z-10">
-                {ICONS[skill.name] && (
-                  <img src={ICONS[skill.name]} alt={skill.name} className="w-12 h-12 mb-1 object-contain" />
-                )}
-                <span className="text-sm text-foreground/80 mt-1">{skill.name}</span>
-              </div>
-
-              {/* Escritorio */}
-              <div className="hidden sm:block relative z-10">
-                <h3 className="text-2xl text-foreground group-hover:text-primary transition-colors duration-300 mb-5">
-                  {skill.name}
-                </h3>
-                <div className="w-full bg-background/50 rounded-full h-2 overflow-hidden mb-5">
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  {ICONS[skill.name] && (
+                    <img src={ICONS[skill.name]} alt={skill.name}
+                      className="w-10 h-10 sm:w-12 sm:h-12 object-contain flex-shrink-0"
+                    />
+                  )}
+                  <h3 className="text-xl sm:text-2xl text-foreground group-hover:text-primary transition-colors duration-300">
+                    {skill.name}
+                  </h3>
+                </div>
+                <div className="w-full bg-background/50 rounded-full h-2 overflow-hidden mb-4">
                   <motion.div
                     className="h-2 rounded-full"
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: skill.level / 100 }}
-                    viewport={{ once: true, margin: "-50px" }}
+                    viewport={{ once: true, amount: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.05 }}
                     style={{ transformOrigin: 'left', background: 'linear-gradient(90deg, #ff9933 0%, #ffcc55 100%)', willChange: 'transform' }}
                   />
                 </div>
-                <p className="text-sm text-foreground/80 mb-5">{skill.description}</p>
+                <p className="text-sm text-foreground/80 mb-4">{skill.description}</p>
                 <div className="text-xs uppercase tracking-wider mb-2" style={{ color: '#ff9933' }}>Especialidades:</div>
                 <div className="flex flex-wrap gap-2">
                   {skill.specialties.map((s, i) => (
@@ -122,58 +119,43 @@ export function Skills() {
           ))}
         </div>
 
-        {/* Fila secundaria — 5 tarjetas más pequeñas */}
-        <div className="grid gap-3" style={{ gridTemplateColumns: 'repeat(5, 1fr)' }}>
+        {/* Fila secundaria — 5 casillas cuadradas agrupadas */}
+        <div className="flex flex-wrap justify-center gap-3">
           {secondarySkills.map((skill, index) => (
             <motion.div
               key={skill.name}
               className="backdrop-blur-sm rounded-xl border transition-all duration-300 relative overflow-hidden group
-                         h-24 sm:h-auto p-3 sm:p-6 flex items-center justify-center sm:block"
-              style={{ background: CARD_BG, borderColor: CARD_BORDER, willChange: 'transform' }}
+                         flex flex-col items-center justify-center p-3"
+              style={{
+                background: CARD_BG,
+                borderColor: CARD_BORDER,
+                willChange: 'transform',
+                width: '88px',
+                height: '88px',
+              }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, amount: 0 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.08 }}
             >
-              {/* Layout único — el overflow-hidden del card recorta en móvil */}
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%' }}>
-                {/* Título encima del icono */}
-                <h3 className="text-base text-foreground group-hover:text-primary transition-colors duration-300" style={{ marginBottom: '8px', position: 'relative', zIndex: 10 }}>
-                  {skill.name}
-                </h3>
+              {ICONS[skill.name] && (
+                <img src={ICONS[skill.name]} alt={skill.name}
+                  className="w-9 h-9 mb-2 object-contain"
+                  style={{ filter: ICON_FILTER }}
+                />
+              )}
+              <span className="text-xs text-center leading-tight text-foreground/80">{skill.name}</span>
 
-                {/* Icono en el medio */}
-                {ICONS[skill.name] && (
-                  <img src={ICONS[skill.name]} alt="" aria-hidden="true"
-                    className="pointer-events-none select-none"
-                    style={{ width: '100%', height: '80px', objectFit: 'contain', margin: '10px 0', filter: ICON_FILTER, opacity: 0.35 }}
-                  />
-                )}
-
-                {/* Contenido debajo del icono */}
-                <div style={{ width: '100%', position: 'relative', zIndex: 10 }}>
-                  <div className="w-full bg-background/50 rounded-full overflow-hidden" style={{ height: '6px', marginBottom: '8px' }}>
-                    <motion.div
-                      className="rounded-full"
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: skill.level / 100 }}
-                      viewport={{ once: true, margin: "-50px" }}
-                      transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.05 }}
-                      style={{ height: '6px', transformOrigin: 'left', background: 'linear-gradient(90deg, #ff9933 0%, #ffcc55 100%)', willChange: 'transform' }}
-                    />
-                  </div>
-                  <p className="text-xs text-foreground/70 leading-relaxed" style={{ marginBottom: '8px' }}>{skill.description}</p>
-                  <div className="text-xs uppercase tracking-wider" style={{ color: '#ff9933', marginBottom: '6px' }}>Especialidades:</div>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '4px' }}>
-                    {skill.specialties.map((s, i) => (
-                      <span key={i} className="text-xs rounded border" style={{ padding: '2px 6px', background: 'rgba(255, 153, 51, 0.15)', color: '#ff9933', borderColor: CARD_BORDER }}>
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              {/* Barra de nivel en el borde inferior */}
+              <motion.div
+                className="absolute bottom-0 left-0 h-0.5 rounded-full"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: skill.level / 100 }}
+                viewport={{ once: true, amount: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.05 }}
+                style={{ width: '100%', transformOrigin: 'left', background: 'linear-gradient(90deg, #ff9933 0%, #ffcc55 100%)' }}
+              />
             </motion.div>
           ))}
         </div>
