@@ -28,6 +28,21 @@ export const About = () => {
             filter: "blur(25px)",
           }}
         />
+
+        {/* Retrato decorativo llenando el lado derecho, con el mismo efecto de los iconos de Skills */}
+        <img
+          src="/profile.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute top-0 right-0 h-full w-1/2 md:w-2/5 object-cover pointer-events-none select-none"
+          style={{
+            filter: 'grayscale(1) invert(1) sepia(1) saturate(3) brightness(0.85)',
+            opacity: 0.16,
+            objectPosition: '60% 20%',
+            maskImage: 'linear-gradient(to left, black 55%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to left, black 55%, transparent 100%)',
+          }}
+        />
       </div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
