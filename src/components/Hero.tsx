@@ -62,7 +62,7 @@ export function Hero() {
             <motion.img
               src="/logooptimizado.png"
               alt="Algo's JSX Logo"
-              className="w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain"
+              className="w-24 h-24 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain"
               style={{
                 filter: "drop-shadow(0 0 10px rgba(0, 255, 255, 0.4))",
               }}
@@ -156,7 +156,7 @@ export function Hero() {
 
       {/* Scroll Indicator - simplificado */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+        className="absolute bottom-16 left-1/2 transform -translate-x-1/2 z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
