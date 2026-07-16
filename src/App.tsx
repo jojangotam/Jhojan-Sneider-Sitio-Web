@@ -3,6 +3,7 @@ import { Hero } from "./components/Hero";
 import { About } from "./components/About";
 import { InstagramBanner } from "./components/InstagramBanner";
 import { Skills } from "./components/Skills";
+import { ExtraSkills } from "./components/ExtraSkills";
 import { Portfolio } from "./components/Portfolio";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
@@ -18,6 +19,7 @@ export default function App() {
         <InstagramBanner />
         <About />
         <Skills />
+        <ExtraSkills />
         <Portfolio />
         <Contact />
       </main>

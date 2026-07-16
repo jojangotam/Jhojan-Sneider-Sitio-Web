@@ -61,6 +61,7 @@ export function Header() {
               { href: "#inicio", text: "Inicio" },
               { href: "#sobre-mi", text: "Sobre Mí" },
               { href: "#habilidades", text: "Habilidades" },
+              { href: "#habilidades-extra", text: "Extra" },
               { href: "#proyectos", text: "Proyectos" },
               { href: "#contacto", text: "Contacto" }
             ].map((item, index) => (
@@ -126,7 +127,7 @@ export function Header() {
           className="mobile-dropdown"
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            {["#inicio", "#sobre-mi", "#habilidades", "#proyectos", "#contacto"].map(href => (
+            {["#inicio", "#sobre-mi", "#habilidades", "#habilidades-extra", "#proyectos", "#contacto"].map(href => (
               <a
                 key={href}
                 href={href}
